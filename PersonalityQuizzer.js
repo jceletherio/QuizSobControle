@@ -1,4 +1,4 @@
-var serverSocket = new WebSocket("ws://websocket-inf1300.herokuapp.com/");
+var serverSocket = new WebSocket("https://websocket-inf1300.herokuapp.com/");
 var PersonalityQuizzer = (function($, DOMBars, window, document){
 	'use strict';
 
