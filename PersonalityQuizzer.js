@@ -1,3 +1,4 @@
+var serverSocket = new WebSocket("ws://websocket-inf1300.herokuapp.com/");
 var PersonalityQuizzer = (function($, DOMBars, window, document){
 	'use strict';
 
@@ -96,18 +97,7 @@ var PersonalityQuizzer = (function($, DOMBars, window, document){
 			}
 
 			this.set("done", true)
-			if(winnerId==0){
-				emailjs.send("default_service","template_NfPETx4x",{name: "Teste realizado, grau baixo", notes: winnerId.toString});
-			}
-			if(winnerId==1){
-				emailjs.send("default_service","template_NfPETx4x",{name: "Teste realizado, grau leve", notes: winnerId.toString});
-			}
-			if(winnerId==2){
-				emailjs.send("default_service","template_NfPETx4x",{name: "Teste realizado, grau moderado", notes: winnerId.toString});
-			}
-			if(winnerId==3){
-				emailjs.send("default_service","template_NfPETx4x",{name: "Teste realizado, grau elevado", notes: winnerId.toString});
-			}
+			serverSocket.send(topScore); 
 			
 		},
 		showResult: function(resultId) {
